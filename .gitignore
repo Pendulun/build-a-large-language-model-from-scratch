@@ -1,3 +1,4 @@
 .venv
 dist
 src/build_a_large_language_model_from_scratch.egg-info
+__pycache__
