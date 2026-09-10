@@ -1,5 +1,5 @@
 import torch
-from src.self_attention._1_1_self_attention_class import SelfAttention_v1
+from src.self_attention._1_1_self_attention_class import SelfAttention_v1, SelfAttention_v2
 
 
 def compute_one_context_vector(target_token_id: int = 1):
@@ -60,12 +60,21 @@ def compute_one_context_vector(target_token_id: int = 1):
     print("Context embedding:", context_vec_2, sep='\n')
 
 
-def compute_all_context_embeddings():
+def compute_all_context_embeddings_v1():
     inputs = _get_input_embeddings()
     torch.manual_seed(123)
     d_in = inputs.shape[1]
     d_out = 2
     sa_v1 = SelfAttention_v1(d_in, d_out)
+    print(sa_v1(inputs))
+
+
+def compute_all_context_embeddings_v2():
+    inputs = _get_input_embeddings()
+    torch.manual_seed(123)
+    d_in = inputs.shape[1]
+    d_out = 2
+    sa_v1 = SelfAttention_v2(d_in, d_out)
     print(sa_v1(inputs))
 
 
@@ -84,4 +93,5 @@ def _get_input_embeddings() -> torch.Tensor:
 
 
 if __name__ == "__main__":
-    compute_all_context_embeddings()
+    compute_all_context_embeddings_v1()
+    compute_all_context_embeddings_v2()
