@@ -89,7 +89,7 @@ class CausalSelfAttention_v1(nn.Module):
 class CausalSelfAttention_v2(nn.Module):
     """
     Extensão do CausalSelfAttention_v1 que também implementa
-    dropout sobre os attention-weights para prevenir o everfitting
+    dropout sobre os attention-weights para prevenir o overfitting
     ao garantir que o modelo não fique dependente de nenhum padrão
     muito específico encontrado durante o treinamento.
     Essa classe também leva em consideração o processamento em batch
